@@ -3,6 +3,15 @@ import random
 import os
 
 
+def evilness(x):
+    if x == 1:
+        return 10
+    elif x == 2:
+        return 0
+    else:
+        return -10
+
+
 def create_character():
     your_name = name()
     your_element = choose_element()
@@ -187,3 +196,49 @@ def verification(x):
 def max_dmg():
     dmg = random.randint(40, 100)
     return dmg
+
+
+def choose_first_decision():
+    while True:
+        print()
+        print(f'Escolha sua  atitude ')
+        for n, dc in main_extra.first_decision.items():
+            print(f'[{n}] : {dc}')
+        choose_decision = input('Faça sua escolha: ')
+
+        try:
+            choose_decision = int(choose_decision)
+        except ValueError:
+            print('Por favor, digite um valor válido!')
+            print()
+        else:
+            if choose_decision > 0 and choose_decision < 4:
+                decision_name = de_encryption_first_decision(choose_decision)
+                v = verification(decision_name)
+                if v == 'yes':
+                    evil = evilness(choose_decision)
+                    response = choice_first_response(choose_decision)
+                    os.system('cls')
+                    return decision_name, evil, response
+            else:
+                print('Por favor, digite um valor válido!')
+                print()
+
+
+def choice_first_response(decision):
+    if decision == 1:
+        return main_extra.first_response[0]
+    elif decision == 2:
+        return main_extra.first_response[1]
+    else:
+        return main_extra.first_response[2]
+
+
+def de_encryption_first_decision(decision):
+    decision_name = list(main_extra.first_decision.values())
+    if decision == 1:
+        return decision_name[0]
+    elif decision == 2:
+        return decision_name[1]
+    else:
+        return decision_name[2]

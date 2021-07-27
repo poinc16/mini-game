@@ -1,9 +1,10 @@
 class Hero:
-    def __init__(self, name, element, super_power, max_dmg):
+    def __init__(self, name, element, super_power, max_dmg, evil=0):
         self._super_power = super_power
         self._name = name
         self._element = element
         self._max_dmg = max_dmg
+        self._evil = evil
 
 
 element = {
@@ -32,3 +33,15 @@ super_power4 = {
     '1': 'Furacão',
     '2': 'Vendaval'
 }
+
+first_decision = {
+    '1': 'Levantar e se defender',
+    '2': 'Fingir que está inconsciente',
+    '3': 'Perguntar o que ele irá fazer'
+}
+
+first_response = [
+    'Você tenta se levantar, mas está totalmente amarrado na cadeira.',
+    'Você finge não estar consciente e começa a escutar a ferramente fazer um barulho agudo e assustador.',
+    'Você tenta falar, mas não consegue.'
+]
