@@ -40,8 +40,34 @@ first_decision = {
     '3': 'Perguntar o que ele irá fazer'
 }
 
-first_response = [
-    'Você tenta se levantar, mas está totalmente amarrado na cadeira.',
-    'Você finge não estar consciente e começa a escutar a ferramente fazer um barulho agudo e assustador.',
-    'Você tenta falar, mas não consegue.'
-]
+second_decision = {
+    '1': 'Ataca-la e fugir',
+    '2': 'Segui-la sem pestanejar',
+    '3': 'Agradeça e se junte a ela'
+}
+
+responses = {
+    'first': [
+        'Você tenta se levantar, mas está totalmente amarrado na cadeira.',
+        'Você finge não estar consciente e começa a escutar a ferramente fazer um barulho agudo e assustador.',
+        'Você tenta falar, mas não consegue.'
+    ],
+    'second': [
+        'a',
+        'b',
+        'c'
+    ]
+}
+
+decisions = {
+    'first': {
+        '1': 'Levantar e se defender',
+        '2': 'Fingir que está inconsciente',
+        '3': 'Perguntar o que ele irá fazer'
+    },
+    'second': {
+        '1': 'Ataca-la e fugir',
+        '2': 'Segui-la sem pestanejar',
+        '3': 'Agradeça e se junte a ela'
+    }
+}

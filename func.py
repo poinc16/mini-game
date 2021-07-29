@@ -94,7 +94,7 @@ def choose_power(n):
                         os.system('cls')
                         return power_name
                 else:
-                    ('Por favor, digite um valor válido')
+                    print('Por favor, digite um valor válido')
                     print()
 
     if n == 2:
@@ -198,12 +198,41 @@ def max_dmg():
     return dmg
 
 
-def choose_first_decision():
+def response_choosed(decision, decision_number):
+    response_list = main_extra.responses.values()
+    response_returned = list()
+    for i in response_list:
+        for j in i:
+            response_returned.append(j)
+
+    if decision_number == 1:
+        if decision == 1:
+            return response_returned[0]
+        elif decision == 2:
+            return response_returned[1]
+        else:
+            return response_returned[2]
+    elif decision_number == 2:
+        if decision == 1:
+            return response_returned[3]
+        elif decision == 2:
+            return response_returned[4]
+        else:
+            return response_returned[5]
+
+
+def choose_decision(decision_number):
     while True:
         print()
         print(f'Escolha sua  atitude ')
-        for n, dc in main_extra.first_decision.items():
-            print(f'[{n}] : {dc}')
+        x = 0
+        for i in main_extra.decisions.values():
+            x += 1
+            for n, dc in i.items():
+                if decision_number == 1 and x == 1:
+                    print(f'[{n}] : {dc}')
+                elif decision_number == 2 and x == 2:
+                    print(f'[{n}] : {dc}')
         choose_decision = input('Faça sua escolha: ')
 
         try:
@@ -213,11 +242,14 @@ def choose_first_decision():
             print()
         else:
             if choose_decision > 0 and choose_decision < 4:
-                decision_name = de_encryption_first_decision(choose_decision)
+                decision_name = de_encryption_decisions(
+                    choose_decision, decision_number
+                )
                 v = verification(decision_name)
                 if v == 'yes':
                     evil = evilness(choose_decision)
-                    response = choice_first_response(choose_decision)
+                    response = response_choosed(
+                        choose_decision, decision_number)
                     os.system('cls')
                     return decision_name, evil, response
             else:
@@ -225,20 +257,17 @@ def choose_first_decision():
                 print()
 
 
-def choice_first_response(decision):
-    if decision == 1:
-        return main_extra.first_response[0]
-    elif decision == 2:
-        return main_extra.first_response[1]
-    else:
-        return main_extra.first_response[2]
+def de_encryption_decisions(decision, decision_number):
+    decision_dict = main_extra.decisions.values()
+    decision_name = list()
+    for i in decision_dict:
+        for j in i.values():
+            decision_name.append(j)
 
-
-def de_encryption_first_decision(decision):
-    decision_name = list(main_extra.first_decision.values())
-    if decision == 1:
-        return decision_name[0]
-    elif decision == 2:
-        return decision_name[1]
-    else:
-        return decision_name[2]
+    if decision_number == 1:
+        if decision == 1:
+            return decision_name[0]
+        elif decision == 2:
+            return decision_name[1]
+        else:
+            return decision_name[2]
