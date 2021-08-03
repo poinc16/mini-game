@@ -8,8 +8,6 @@ def evilness(x):
         return 10
     elif x == 2:
         return 0
-    else:
-        return -10
 
 
 def create_character():
@@ -208,17 +206,24 @@ def response_choosed(decision, decision_number):
     if decision_number == 1:
         if decision == 1:
             return response_returned[0]
-        elif decision == 2:
-            return response_returned[1]
         else:
-            return response_returned[2]
+            return response_returned[1]
     elif decision_number == 2:
         if decision == 1:
-            return response_returned[3]
-        elif decision == 2:
-            return response_returned[4]
+            return response_returned[2]
         else:
-            return response_returned[5]
+            return response_returned[3]
+    if decision_number == 3:
+        if main_extra.Hero.decisions_choosed[1] == 10:
+            if decision == 1:
+                return response_returned[4]
+            else:
+                return response_returned[5]
+        if main_extra.Hero.decisions_choosed[1] == 0:
+            if decision == 1:
+                return response_returned[6]
+            else:
+                return response_returned[7]
 
 
 def choose_decision(decision_number):
@@ -233,6 +238,8 @@ def choose_decision(decision_number):
                     print(f'[{n}] : {dc}')
                 elif decision_number == 2 and x == 2:
                     print(f'[{n}] : {dc}')
+                elif decision_number == 3 and x == 3:
+                    print(f'[{n}] : {dc}')
         choose_decision = input('Faça sua escolha: ')
 
         try:
@@ -241,7 +248,7 @@ def choose_decision(decision_number):
             print('Por favor, digite um valor válido!')
             print()
         else:
-            if choose_decision > 0 and choose_decision < 4:
+            if choose_decision > 0 and choose_decision < 3:
                 decision_name = de_encryption_decisions(
                     choose_decision, decision_number
                 )
@@ -267,7 +274,23 @@ def de_encryption_decisions(decision, decision_number):
     if decision_number == 1:
         if decision == 1:
             return decision_name[0]
-        elif decision == 2:
-            return decision_name[1]
         else:
+            return decision_name[1]
+
+    if decision_number == 2:
+        if decision == 1:
             return decision_name[2]
+        else:
+            return decision_name[3]
+
+    if decision_number == 3:
+        if main_extra.Hero.decisions_choosed[1] == 10:
+            if decision == 1:
+                return decision_name[4]
+            else:
+                return decision_name[5]
+        if main_extra.Hero.decisions_choosed[1] == 0:
+            if decision == 1:
+                return decision_name[6]
+            else:
+                return decision_name[7]

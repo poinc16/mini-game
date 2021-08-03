@@ -6,6 +6,11 @@ class Hero:
         self._max_dmg = max_dmg
         self._evil = evil
 
+    def decisions_choosed(choice_evil):
+        number_of_decisions = list()
+        number_of_decisions.append(choice_evil)
+        return number_of_decisions
+
 
 element = {
     '1': 'Água',
@@ -34,40 +39,40 @@ super_power4 = {
     '2': 'Vendaval'
 }
 
-first_decision = {
-    '1': 'Levantar e se defender',
-    '2': 'Fingir que está inconsciente',
-    '3': 'Perguntar o que ele irá fazer'
-}
-
-second_decision = {
-    '1': 'Ataca-la e fugir',
-    '2': 'Segui-la sem pestanejar',
-    '3': 'Agradeça e se junte a ela'
-}
-
 responses = {
     'first': [
         'Você tenta se levantar, mas está totalmente amarrado na cadeira.',
-        'Você finge não estar consciente e começa a escutar a ferramente fazer um barulho agudo e assustador.',
-        'Você tenta falar, mas não consegue.'
+        'Você finge não estar consciente e começa a escutar a ferramenta fazer um barulho agudo e assustador.',
     ],
     'second': [
-        'a',
-        'b',
-        'c'
+        'Você da um soco na pessoa e sai correndo por onde ela veio.',
+        'Você sente seu corpo formigando por ter ficado tanto tempo amarrado. Você a vê indo embora pelo lado oposto ao que ela veio, e a segue rapidamente.',
+    ],
+    'third-one': [
+        'Primeira ramificação primeira escolha',
+        'Primeira ramificação segunda escolha'
+    ],
+    'third-two': [
+        'Segunda ramificação primeira escolha',
+        'Segunda ramificação segunda escolha'
     ]
 }
 
 decisions = {
     'first': {
         '1': 'Levantar e se defender',
-        '2': 'Fingir que está inconsciente',
-        '3': 'Perguntar o que ele irá fazer'
+        '2': 'Fingir que está inconsciente'
     },
     'second': {
         '1': 'Ataca-la e fugir',
         '2': 'Segui-la sem pestanejar',
-        '3': 'Agradeça e se junte a ela'
+    },
+    'third-one': {
+        '1': 'Primeira ramificação primeira escolha',
+        '2': 'Primeira ramificação segunda escolha'
+    },
+    'third-two': {
+        '1': 'Segunda ramificação primeira escolha',
+        '2': 'Segunda ramificação segunda escolha'
     }
 }
