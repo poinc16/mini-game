@@ -18,8 +18,7 @@ clear_page.system('cls')
 # Segunda parte -> "personagem perde a consciência"
 print('Ao olhar para o possível cientista, você percebe que ele está vindo em sua direção com uma ferramenta parecida com uma furadeira. É também possível perceber que ele não olha para seu rosto em si, e sim para a uma região específica da sua cabeça.')
 
-decision1 = func.choose_decision(1)
-# char1.decisions_choosed(pass)
+decision1 = func.choose_decision(1, 0)
 char1._evil += decision1[1]
 
 print(decision1[2])
@@ -34,8 +33,7 @@ print('Quando você acorda e olha para os lados, percebe que o antigo laboratór
 print()
 print('Da porta em frente a sua "maca", é possível perceber um luz meio rosa vindo em sua direção. É como se alguma pessoa estivesse utilizando algum traje específico que emana essa luminescência. Ela vem em sua direção e solta suas amarras rapidamente, sem nem olhar para o seu rosto.')
 
-decision2 = func.choose_decision(2)
-# char1.decisions_choosed(evilness[1])
+decision2 = func.verify_branch(decision1, 2)
 char1._evil += decision2[1]
 
 print(decision2[2])
@@ -44,10 +42,9 @@ input('Press [ENTER] to continue!')
 clear_page.system('cls')
 
 # Quarta parte -> começa agora as ramificações da história, baseadas em usas escolhas
-print('#####################################')
+print(func.story_telling(decision2, 3))
 
-decision3 = func.choose_decision(3)
-# char1.decisions_choosed(evilness[2])
+decision3 = func.verify_branch(decision2, 3)
 char1._evil += decision3[1]
 
 print(decision3[2])

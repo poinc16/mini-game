@@ -196,7 +196,7 @@ def max_dmg():
     return dmg
 
 
-def response_choosed(decision, decision_number):
+def response_choosed(decision, decision_number, branch):
     response_list = main_extra.responses.values()
     response_returned = list()
     for i in response_list:
@@ -213,20 +213,31 @@ def response_choosed(decision, decision_number):
             return response_returned[2]
         else:
             return response_returned[3]
-    if decision_number == 3:
-        if main_extra.Hero.decisions_choosed[1] == 10:
-            if decision == 1:
-                return response_returned[4]
-            else:
-                return response_returned[5]
-        if main_extra.Hero.decisions_choosed[1] == 0:
-            if decision == 1:
-                return response_returned[6]
-            else:
-                return response_returned[7]
+    if decision_number == 3 and branch == 1:
+        if decision == 1:
+            return response_returned[4]
+        else:
+            return response_returned[5]
+    if decision_number == 3 and branch == 2:
+        if decision == 1:
+            return response_returned[6]
+        else:
+            return response_returned[7]
 
 
-def choose_decision(decision_number):
+def verify_branch(last_decision, decision_number):
+    if last_decision[1] == 10:
+        decision_value = choose_decision(decision_number, 1)
+        return decision_value
+    elif last_decision[1] == 0:
+        decision_value = choose_decision(decision_number, 2)
+        return decision_value
+    else:
+        decision_value = choose_decision(decision_number, 0)
+        return decision_value
+
+
+def choose_decision(decision_number, branch):
     while True:
         print()
         print(f'Escolha sua  atitude ')
@@ -238,7 +249,9 @@ def choose_decision(decision_number):
                     print(f'[{n}] : {dc}')
                 elif decision_number == 2 and x == 2:
                     print(f'[{n}] : {dc}')
-                elif decision_number == 3 and x == 3:
+                elif decision_number == 3 and x == 3 and branch == 1:
+                    print(f'[{n}] : {dc}')
+                elif decision_number == 3 and x == 4 and branch == 2:
                     print(f'[{n}] : {dc}')
         choose_decision = input('Faça sua escolha: ')
 
@@ -250,13 +263,13 @@ def choose_decision(decision_number):
         else:
             if choose_decision > 0 and choose_decision < 3:
                 decision_name = de_encryption_decisions(
-                    choose_decision, decision_number
+                    choose_decision, decision_number, branch
                 )
                 v = verification(decision_name)
                 if v == 'yes':
                     evil = evilness(choose_decision)
                     response = response_choosed(
-                        choose_decision, decision_number)
+                        choose_decision, decision_number, branch)
                     os.system('cls')
                     return decision_name, evil, response
             else:
@@ -264,7 +277,7 @@ def choose_decision(decision_number):
                 print()
 
 
-def de_encryption_decisions(decision, decision_number):
+def de_encryption_decisions(decision, decision_number, branch):
     decision_dict = main_extra.decisions.values()
     decision_name = list()
     for i in decision_dict:
@@ -283,14 +296,23 @@ def de_encryption_decisions(decision, decision_number):
         else:
             return decision_name[3]
 
-    if decision_number == 3:
-        if main_extra.Hero.decisions_choosed[1] == 10:
-            if decision == 1:
-                return decision_name[4]
-            else:
-                return decision_name[5]
-        if main_extra.Hero.decisions_choosed[1] == 0:
-            if decision == 1:
-                return decision_name[6]
-            else:
-                return decision_name[7]
+    if decision_number == 3 and branch == 1:
+        if decision == 1:
+            return decision_name[4]
+        else:
+            return decision_name[5]
+
+    if decision_number == 3 and branch == 2:
+        if decision == 1:
+            return decision_name[6]
+        else:
+            return decision_name[7]
+
+
+def story_telling(last_decision, decision_number):
+    if last_decision[1] == 10:
+        if decision_number == 3:
+            return 'Olá, então você escolheu a parte de bater heim?!?!'
+    elif last_decision[1] == 0:
+        if decision_number == 3:
+            return 'Olá, então você é bonzinho!!!!'
