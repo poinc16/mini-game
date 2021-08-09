@@ -1,15 +1,21 @@
 class Hero:
-    def __init__(self, name, element, super_power, max_dmg, evil=0):
+    def __init__(self, name, element, super_power, evil=0):
         self._super_power = super_power
         self._name = name
         self._element = element
-        self._max_dmg = max_dmg
-        self._evil = evil
+        self.evil = evil
 
-    def decisions_choosed(choice_evil):
-        number_of_decisions = list()
-        number_of_decisions.append(choice_evil)
-        return number_of_decisions
+    @property
+    def super_power(self):
+        return self._super_power
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def element(self):
+        return self._element
 
 
 element = {
@@ -25,8 +31,8 @@ super_power1 = {
 }
 
 super_power2 = {
-    '1': 'Jogar rochas',
-    '2': 'Manipulação de rochedos menores'
+    '1': 'Terremoto',
+    '2': 'Manipulação de rochas'
 }
 
 super_power3 = {
@@ -110,12 +116,39 @@ decisions = {
 }
 
 finals = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8'
+    [
+        'Você começa a sentir seu corpo um pouco úmido e, repentinamente, bem do centro do seu peito, sai um jato de água muito forte que destrói o restante do teto acima, fazendo com que o restante dele caísse sobre você. VOCÊ MORREU!',
+        'Você escuta um som de maré vindo de trás de você. Ao olhar para lá, é possível ver uma onda enorme vindo em sua direção. Ela passa destruindo tudo em sua volta, mas, quando te atinge, você não sente nada. Essa onda te tira de baixo dos destroços e te leva para fora do laboratório. VOCÊ SOBREVIVEU!',
+        'Você sente tudo começar a tremer muito. O restante do teto começa a desabar com todos os movimentos sísmicos, e você é soterrado. VOCÊ MORREU!',
+        'Você percebe que todas as rochas que estão acima de você começam a ser jogadas para longe, te deixando livre para sair dali. Por causa do seu machucado feio e da sua imensa dor, é preciso ir rastejando. Demoraram horas para que você conseguisse sair de lá, mas você conseguiu. VOCÊ SOBREVIVEU!',
+        'Seu peito começa a ficar muito quente, e, bem do centro dele, sai uma labareda muito forte. Com isso, você apenas aumenta o incêndio do laboratório, fazendo com que o fogo chegue em mais substâncias químicas, que explodem o laboratório completo. VOCÊ MORREU!',
+        'Você sente seu corpo inteiro começar a esquentar muito. Seu peito começa a pegar fogo e é possível ver esse fogo se espalhando pelo corpo inteiro. As rochas que estão a sua volta começam a derreter e você não sente mais dor em sua perna. Você levanta e sai correndo em direção a saída, derretendo tudo que está a sua volta. VOCÊ SOBREVIVEU!',
+        'Você percebe um redemoinho começar a se formar bem no centro do seu peito. Em instanstes, aquele pequeno redemoinho se tornou um imenso furacão, que destruiu e jogou para longe de você toda a estrutura e destroços do laboratório. Assim, você consegue sair livremente por onde seria a saída quando a estrutura ainda estava lá. VOCÊ SOBREVIVEU!',
+        'Você começa a sentir uma leve brisa de vento surgir atrás de você. Em poucos segundos, essa corrente de vento se tornou um vendaval fortíssimo. Através desse vendaval, o fogo se espalhou pelo restante do laboratório, fazendo com que substâncias altamente inflamáveis e explosivas recebessem o calor do incêndio. No fim, o laboratório inteiro explodiu com você dentro. VOCÊ MORREU!'
+    ],
+    'A pessoa olha para você, vê sua situação e te diz: "na próxima vez, não vá contra quem deu a vida para te salvar". Após terminar de falar, você vê o coração dela começar a emitir uma luz muito brilhante e, ao mesmo tempo, o resto do teto começa a desabar sobre você. VOCÊ MORREU!',
+    '"Não é possível que você seja tão cretino a esse ponto!". É possível ver o coração dela brilhar e, poucos segundos depois, o você sente o chão ficar muito quente e começar a borbulhar. Pouco tempo depois disso, você é "engolido" por ele, queimando em lava. VOCÊ MORREU!',
+    'Chegando nela, você pede muitas desculpas e explica que estava assustado com a situação. Ela diz que entende o seu lado e te explica que agora você possui um super-poder. Após te ensinar a utiliza-lo, vocês continuam o caminho juntos. VOCÊ SOBREVIVEU!',
+    '"Eu só estava tentando te ajudar, mas já que você quer assim... assim será!". É possível ver o coração dela começar a acelerar muito os batimentos e, instantaneamente depois, você é atingido por trás por uma imensa onda de água que te leva em direção a parede. Com a força que a água te jogou e seu impacto na parede, a mesma desmorona em cima de você. VOCÊ MORREU!',
+    [
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Com os jatos de água que você solta, você consegue ir destruindo os destroços que vão caindo sobre vocês, até que chegam no final e conseguem sair. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você faz uma onda gigantesca atrás de vocês, que leva vocês dois para o final do corredor em segurança. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você cria um terremoto, tentando fazer com que abrisse caminho pelo solo para vocês passarem, mas não dá certo. Isso apenas acelera a velocidade de destruição do laboratório e vocês são soterrados. VOCÊ MORREU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você começa a controlar as rochas que caem do teto e joga-las para longe. Vocês chegam, com facilidade, no final do corredor. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali e começa a utilizar o lança chamas que você cria no peito para tentar ir derretendo as rochas que caem do teto. Porém, isso não dá certo e vocês acabam sendo soterrados. VOCÊ MORREU',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você deixa seu corpo inteiro em combustão, fazendo com que derretesse qualquer coisa que encostasse. Com isso, você abriu espaço por outro local do corredor e vocês conseguiram sair de lá. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você cria um imenso furacão que destrói o restante da estrutura do laboratório, e jogando para longe toda a estrutura dele. Assim, vocês tiveram caminho livre para irem embora. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você faz com que o vendaval carregasse as rochas que cairiam sobre vocês para longe. Sendo assim, vocês conseguem sair de lá com facilidade. VOCÊ SOBREVIVEU!'
+    ],
+    '"Não faça isso! Se você sair utilizando seus poderes assim, vai acabar matando nós dois!", porém você não consegue controlar a canalização de suas energias. É possível sentir seu coração acelerando muito e começando a brilhar. Como um ato final de desespero, a pessoa tira a faca, que utilizou para cortar suas amarras, do bolso e enfia diretamente no seu coração. VOCÊ MORREU!',
+    [
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Com os jatos de água que você solta, você consegue ir destruindo os destroços que vão caindo sobre vocês, até que chegam no final e conseguem sair. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você faz uma onda gigantesca atrás de vocês, que leva vocês dois para o final do corredor em segurança. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você cria um terremoto, tentando fazer com que abrisse caminho pelo solo para vocês passarem, mas não dá certo. Isso apenas acelera a velocidade de destruição do laboratório e vocês são soterrados. VOCÊ MORREU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você começa a controlar as rochas que caem do teto e joga-las para longe. Vocês chegam, com facilidade, no final do corredor. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali e começa a utilizar o lança chamas que você cria no peito para tentar ir derretendo as rochas que caem do teto. Porém, isso não dá certo e vocês acabam sendo soterrados. VOCÊ MORREU',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você deixa seu corpo inteiro em combustão, fazendo com que derretesse qualquer coisa que encostasse. Com isso, você abriu espaço por outro local do corredor e vocês conseguiram sair de lá. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você cria um imenso furacão que destrói o restante da estrutura do laboratório, e jogando para longe toda a estrutura dele. Assim, vocês tiveram caminho livre para irem embora. VOCÊ SOBREVIVEU!',
+        'Durante o caminho, você percebe que o restante do laboratório está desabando sobre vocês. Você percebe que a pessoa, através de seu poder, fez um grande escudo de pedra acima de vocês dois, porém percebe que ele não irá durar muito tempo. Você decide, então, utilizar seu poder para conseguirem sair dali. Você faz com que o vendaval carregasse as rochas que cairiam sobre vocês para longe. Sendo assim, vocês conseguem sair de lá com facilidade. VOCÊ SOBREVIVEU!'
+    ]
 ]

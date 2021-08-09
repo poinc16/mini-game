@@ -7,10 +7,9 @@ print('Você acorda em um local estranho, parecido com um laboratório, cheio de
 
 char1 = func.create_character()
 
-print(f'Seu nome é: {char1._name}')
-print(f'Seu elemento é: {char1._element}')
-print(f'Seu poder é: {char1._super_power}')
-print(f'O dano do seu poder é: {char1._max_dmg}')
+print(f'Seu nome é: {char1.name}')
+print(f'Seu elemento é: {char1.element}')
+print(f'Seu poder é: {char1.super_power}')
 input('Press [ENTER] to continue!')
 
 clear_page.system('cls')
@@ -19,7 +18,7 @@ clear_page.system('cls')
 print('Ao olhar para o possível cientista, você percebe que ele está vindo em sua direção com uma ferramenta parecida com uma furadeira. É também possível perceber que ele não olha para seu rosto em si, e sim para a uma região específica da sua cabeça.')
 
 decision1 = func.choose_decision(1, 0)
-char1._evil += decision1[1]
+char1.evil += decision1[1]
 
 print(decision1[2])
 print()
@@ -34,7 +33,7 @@ print()
 print('Da porta em frente a sua "maca", é possível perceber uma luz vindo em sua direção. É como se alguma pessoa estivesse vindo até você com uma lanterna apontada para sua direção. Ela vem em sua direção e solta suas amarras rapidamente, sem nem olhar para o seu rosto.')
 
 decision2 = func.verify_branch(decision1[1], 2)
-char1._evil += decision2[0][1]
+char1.evil += decision2[0][1]
 
 print(decision2[0][2])
 input('Press [ENTER] to continue!')
@@ -45,7 +44,7 @@ clear_page.system('cls')
 print(func.story_telling(decision2[0][1], 3, decision2[1]))
 
 decision3 = (func.verify_branch(decision2[0][1], 3))
-char1._evil += decision3[0][1]
+char1.evil += decision3[0][1]
 
 print(decision3[0][2])
 input('Press [ENTER] to continue!')
@@ -56,14 +55,18 @@ clear_page.system('cls')
 print(func.story_telling(decision3[0][1], 4, decision3[1]))
 
 decision4 = func.verify_branch_two(decision3[0][1], decision3[1], 4)
-char1._evil += decision4[0][1]
+char1.evil += decision4[0][1]
+
 
 print(decision4[0][2])
 input('Press [ENTER] to continue!')
 
 clear_page.system('cls')
 
-# Sexta parte -> final (possuindo 8 finais diferentes)
-print(func.final_lore(decision4[1], decision4[0][1]))
+# Sexta parte -> final (possuindo vários finais diferentes)
+print(func.final_lore(decision4[1], decision4[0][1], char1.super_power))
+print()
+print('###########################################################################')
+print(func.verify_evil(char1.evil))
 print()
 input('Press [ENTER] to end-Game!')

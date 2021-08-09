@@ -1,5 +1,4 @@
 import main_extra
-import random
 import os
 
 
@@ -14,10 +13,9 @@ def create_character():
     your_name = name()
     your_element = choose_element()
     your_power = choose_power(your_element[0])
-    your_max_dmg = max_dmg()
 
     your_hero = main_extra.Hero(
-        your_name, your_element[1], your_power, your_max_dmg)
+        your_name, your_element[1], your_power)
     return your_hero
 
 
@@ -189,11 +187,6 @@ def verification(x):
     print()
     if verify.lower() == 's':
         return 'yes'
-
-
-def max_dmg():
-    dmg = random.randint(40, 100)
-    return dmg
 
 
 def response_choosed(decision, decision_number, branch):
@@ -392,10 +385,25 @@ def story_telling(evil, decision_number, branch):
             return 'Ela te explica que vocês são apenas experimentos de laboratório e, através desse experimento, vocês adquiriram poderes. Ainda te diz que, para utiliza-los, basta fechar os olhos e focar todas as suas energias bem no centro do seu coração.'
 
 
-def final_lore(branch, evil):
+def final_lore(branch, evil, power):
     if evil == 10:
         if branch == 1:
-            return main_extra.finals[0]
+            if power == "Jato d'água":
+                return main_extra.finals[0][0]
+            elif power == 'Tsunami':
+                return main_extra.finals[0][1]
+            elif power == 'Terremoto':
+                return main_extra.finals[0][2]
+            elif power == 'Manipulação de rochas':
+                return main_extra.finals[0][3]
+            elif power == 'Lança chamas':
+                return main_extra.finals[0][4]
+            elif power == 'Auto combustão':
+                return main_extra.finals[0][5]
+            elif power == 'Furacão':
+                return main_extra.finals[0][6]
+            elif power == 'Vendaval':
+                return main_extra.finals[0][7]
         elif branch == 2:
             return main_extra.finals[2]
         elif branch == 3:
@@ -408,6 +416,40 @@ def final_lore(branch, evil):
         elif branch == 2:
             return main_extra.finals[3]
         elif branch == 3:
-            return main_extra.finals[5]
+            if power == "Jato d'água":
+                return main_extra.finals[5][0]
+            elif power == 'Tsunami':
+                return main_extra.finals[5][1]
+            elif power == 'Terremoto':
+                return main_extra.finals[5][2]
+            elif power == 'Manipulação de rochas':
+                return main_extra.finals[5][3]
+            elif power == 'Lança chamas':
+                return main_extra.finals[5][4]
+            elif power == 'Auto combustão':
+                return main_extra.finals[5][5]
+            elif power == 'Furacão':
+                return main_extra.finals[5][6]
+            elif power == 'Vendaval':
+                return main_extra.finals[5][7]
         elif branch == 4:
-            return main_extra.finals[7]
+            if power == "Jato d'água":
+                return main_extra.finals[7][0]
+            elif power == 'Tsunami':
+                return main_extra.finals[7][1]
+            elif power == 'Terremoto':
+                return main_extra.finals[7][2]
+            elif power == 'Manipulação de rochas':
+                return main_extra.finals[7][3]
+            elif power == 'Lança chamas':
+                return main_extra.finals[7][4]
+            elif power == 'Auto combustão':
+                return main_extra.finals[7][5]
+            elif power == 'Furacão':
+                return main_extra.finals[7][6]
+            elif power == 'Vendaval':
+                return main_extra.finals[7][7]
+
+
+def verify_evil(evil):
+    return f'Seu nível de maldade, baseado em suas decisões, foi de [{evil}], sendo [40] o nível total.'
