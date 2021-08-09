@@ -31,23 +31,39 @@ clear_page.system('cls')
 # Terceira parte -> personagem tem sua primeira interação com o "mundo novo"
 print('Quando você acorda e olha para os lados, percebe que o antigo laboratório está completamente destruído. Todos os mecanismos estão pegando fogo, algumas partes do teto estão desmoronando e você percebe o sinal de alerta piscando freneticamente. Seus ouvidos parecem estar entupidos, pois ouve os sons baixos e relativamente distantes.')
 print()
-print('Da porta em frente a sua "maca", é possível perceber um luz meio rosa vindo em sua direção. É como se alguma pessoa estivesse utilizando algum traje específico que emana essa luminescência. Ela vem em sua direção e solta suas amarras rapidamente, sem nem olhar para o seu rosto.')
+print('Da porta em frente a sua "maca", é possível perceber uma luz vindo em sua direção. É como se alguma pessoa estivesse vindo até você com uma lanterna apontada para sua direção. Ela vem em sua direção e solta suas amarras rapidamente, sem nem olhar para o seu rosto.')
 
-decision2 = func.verify_branch(decision1, 2)
-char1._evil += decision2[1]
+decision2 = func.verify_branch(decision1[1], 2)
+char1._evil += decision2[0][1]
 
-print(decision2[2])
+print(decision2[0][2])
 input('Press [ENTER] to continue!')
 
 clear_page.system('cls')
 
 # Quarta parte -> começa agora as ramificações da história, baseadas em usas escolhas
-print(func.story_telling(decision2, 3))
+print(func.story_telling(decision2[0][1], 3, decision2[1]))
 
-decision3 = func.verify_branch(decision2, 3)
-char1._evil += decision3[1]
+decision3 = (func.verify_branch(decision2[0][1], 3))
+char1._evil += decision3[0][1]
 
-print(decision3[2])
+print(decision3[0][2])
 input('Press [ENTER] to continue!')
 
+clear_page.system('cls')
+
+# Quinta parte -> decisão final
+print(func.story_telling(decision3[0][1], 4, decision3[1]))
+
+decision4 = func.verify_branch_two(decision3[0][1], decision3[1], 4)
+char1._evil += decision4[0][1]
+
+print(decision4[0][2])
+input('Press [ENTER] to continue!')
+
+clear_page.system('cls')
+
+# Sexta parte -> final (possuindo 8 finais diferentes)
+print(func.final_lore(decision4[1], decision4[0][1]))
+print()
 input('Press [ENTER] to end-Game!')

@@ -223,18 +223,52 @@ def response_choosed(decision, decision_number, branch):
             return response_returned[6]
         else:
             return response_returned[7]
+    if decision_number == 4 and branch == 1:
+        if decision == 1:
+            return response_returned[8]
+        else:
+            return response_returned[9]
+    if decision_number == 4 and branch == 2:
+        if decision == 1:
+            return response_returned[10]
+        else:
+            return response_returned[11]
+    if decision_number == 4 and branch == 3:
+        if decision == 1:
+            return response_returned[12]
+        else:
+            return response_returned[13]
+    if decision_number == 4 and branch == 4:
+        if decision == 1:
+            return response_returned[14]
+        else:
+            return response_returned[15]
 
 
 def verify_branch(last_decision, decision_number):
-    if last_decision[1] == 10:
+    if last_decision == 10:
         decision_value = choose_decision(decision_number, 1)
-        return decision_value
-    elif last_decision[1] == 0:
+        return decision_value, 1
+    elif last_decision == 0:
         decision_value = choose_decision(decision_number, 2)
-        return decision_value
-    else:
-        decision_value = choose_decision(decision_number, 0)
-        return decision_value
+        return decision_value, 2
+
+
+def verify_branch_two(evil, last_branch, decision_number):
+    if evil == 10:
+        if last_branch == 1:
+            decision_value = choose_decision(decision_number, 1)
+            return decision_value, 1
+        if last_branch == 2:
+            decision_value = choose_decision(decision_number, 3)
+            return decision_value, 3
+    elif evil == 0:
+        if last_branch == 1:
+            decision_value = choose_decision(decision_number, 2)
+            return decision_value, 2
+        if last_branch == 2:
+            decision_value = choose_decision(decision_number, 4)
+            return decision_value, 4
 
 
 def choose_decision(decision_number, branch):
@@ -252,6 +286,14 @@ def choose_decision(decision_number, branch):
                 elif decision_number == 3 and x == 3 and branch == 1:
                     print(f'[{n}] : {dc}')
                 elif decision_number == 3 and x == 4 and branch == 2:
+                    print(f'[{n}] : {dc}')
+                elif decision_number == 4 and x == 5 and branch == 1:
+                    print(f'[{n}] : {dc}')
+                elif decision_number == 4 and x == 6 and branch == 2:
+                    print(f'[{n}] : {dc}')
+                elif decision_number == 4 and x == 7 and branch == 3:
+                    print(f'[{n}] : {dc}')
+                elif decision_number == 4 and x == 8 and branch == 4:
                     print(f'[{n}] : {dc}')
         choose_decision = input('Faça sua escolha: ')
 
@@ -308,11 +350,64 @@ def de_encryption_decisions(decision, decision_number, branch):
         else:
             return decision_name[7]
 
+    if decision_number == 4 and branch == 1:
+        if decision == 1:
+            return decision_name[8]
+        else:
+            return decision_name[9]
 
-def story_telling(last_decision, decision_number):
-    if last_decision[1] == 10:
+    if decision_number == 4 and branch == 2:
+        if decision == 1:
+            return decision_name[10]
+        else:
+            return decision_name[11]
+
+    if decision_number == 4 and branch == 3:
+        if decision == 1:
+            return decision_name[12]
+        else:
+            return decision_name[13]
+
+    if decision_number == 4 and branch == 4:
+        if decision == 1:
+            return decision_name[14]
+        else:
+            return decision_name[15]
+
+
+def story_telling(evil, decision_number, branch):
+    if evil == 10:
         if decision_number == 3:
-            return 'Olá, então você escolheu a parte de bater heim?!?!'
-    elif last_decision[1] == 0:
+            return 'Você sai correndo pelo lugar de onde ela veio. Ao sair da sua sala, você se depara com um cenário de completa destruição, além de perceber que o teto ainda está em desmoronamento.'
+        elif decision_number == 4 and branch == 1:
+            return 'Mesmo seguindo com muita calma e cuidado, um destroço grande do teto cai em cima de sua perna. Você agora está preso e com uma dor agonizante.'
+        elif decision_number == 4 and branch == 2:
+            return 'A pessoa se revolta e te diz que vocês são apenas um experimento de laboratório. "Você deveria estar feliz de eu ter vindo te salvar. Agora faça o que eu mando".'
+    elif evil == 0:
         if decision_number == 3:
-            return 'Olá, então você é bonzinho!!!!'
+            return 'A pessoa te diz: "você agora tem poderes. Apenas os utilize para que possamos sair daqui juntos".'
+        elif decision_number == 4 and branch == 1:
+            return 'Você vê uma segunda saída dentro da sala em que você estava. Olhando bem dentre ela, é possível distinguir uma luz um pouco distante, parecida com a da lanterna da pessoa que te desamarrou. Instantaneamente você sai correndo naquela direção.'
+        elif decision_number == 4 and branch == 2:
+            return 'Ela te explica que vocês são apenas experimentos de laboratório e, através desse experimento, vocês adquiriram poderes. Ainda te diz que, para utiliza-los, basta fechar os olhos e focar todas as suas energias bem no centro do seu coração.'
+
+
+def final_lore(branch, evil):
+    if evil == 10:
+        if branch == 1:
+            return main_extra.finals[0]
+        elif branch == 2:
+            return main_extra.finals[2]
+        elif branch == 3:
+            return main_extra.finals[4]
+        elif branch == 4:
+            return main_extra.finals[6]
+    if evil == 0:
+        if branch == 1:
+            return main_extra.finals[1]
+        elif branch == 2:
+            return main_extra.finals[3]
+        elif branch == 3:
+            return main_extra.finals[5]
+        elif branch == 4:
+            return main_extra.finals[7]

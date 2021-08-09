@@ -46,33 +46,76 @@ responses = {
     ],
     'second': [
         'Você da um soco na pessoa e sai correndo por onde ela veio.',
-        'Você sente seu corpo formigando por ter ficado tanto tempo amarrado. Você a vê indo embora pelo lado oposto ao que ela veio, e a segue rapidamente.',
+        'Você se espreguiça e agradece a ela por ter te desamarrado.',
     ],
     'third-one': [
-        'Primeira ramificação primeira escolha',
-        'Primeira ramificação segunda escolha'
+        'Com muita cautela, você começa a seguir pelos destroços.',
+        'Você vira as costas e volta para a sala. Chegando lá, percebe que a pessoa não está mais lá.'
     ],
     'third-two': [
-        'Segunda ramificação primeira escolha',
-        'Segunda ramificação segunda escolha'
-    ]
+        'Você faz uma cara de cético e diz que é impossível, pois poderes não existem.',
+        'Você fica com cara de dúvida e pede explicações. A pessoa começa a falar.'
+    ],
+    'fourth-one': [
+        'Você sente seu coração começar a ficar muito acelerado e algo estranho acontece.',
+        'Você começa a gritar desesperadamente e percebe a luz da lanterna vindo em sua direção agora.'
+    ],
+    'fourth-two': [
+        'Você tenta acertar a pessoa com uma pedra, mas acaba errando. Entretanto a pessoa percebe sua intenção e se vira para sua direção.',
+        'A pessoa te escuta e fica parada esperando você chegar até ela.'
+    ],
+    'fourth-three': [
+        'Você empurra a pessoa e ela cai no chão. Ao se levantar, é possível perceber ódio exalando dos olhos dela.',
+        'Você faz um sinal de confirmação com a cabeça. Ela te explica rapidamente como utilizar seus poderes e vocês saem juntos por um corredor contrário ao que ela veio.'
+    ],
+    'fourth-four': [
+        'A pessoa instantaneamente grita para você parar.',
+        'A pessoa te da um sorriso amigo em resposta e vocês saem por um corredor contrário ao que ela veio.'
+    ],
 }
 
 decisions = {
     'first': {
-        '1': 'Levantar e se defender',
-        '2': 'Fingir que está inconsciente'
+        '1': 'Levantar e se defender.',
+        '2': 'Fingir que está inconsciente.'
     },
     'second': {
-        '1': 'Ataca-la e fugir',
-        '2': 'Segui-la sem pestanejar',
+        '1': 'Ataca-la e fugir.',
+        '2': 'Agradece-la e esperar as instruções.',
     },
     'third-one': {
-        '1': 'Primeira ramificação primeira escolha',
-        '2': 'Primeira ramificação segunda escolha'
+        '1': 'Seguir por esse caminho.',
+        '2': 'Voltar atrás em sua decisão, pedir desculpas para a pessoa e ver como ela pode te ajudar.'
     },
     'third-two': {
-        '1': 'Segunda ramificação primeira escolha',
-        '2': 'Segunda ramificação segunda escolha'
+        '1': 'Duvidar do que a pessoa disse.',
+        '2': 'Pedir explicações.'
+    },
+    'fourth-one': {
+        '1': 'Fechar os olhos, respirar fundo, e fazer o máximo de força que conseguir.',
+        '2': 'Gritar pedindo ajuda.'
+    },
+    'fourth-two': {
+        '1': 'Pegar uma pedra que está no chão e jogar na pessoa.',
+        '2': 'Gritar para a pessoa te esperar.'
+    },
+    'fourth-three': {
+        '1': 'Se irritar com a maneira de falar da pessoa e confronta-la.',
+        '2': 'Seguir suas ordens'
+    },
+    'fourth-four': {
+        '1': 'Começar a canalizar o seu poder ali mesmo.',
+        '2': 'Aceitar as dicas da pessoa e fugir junto dela.'
     }
 }
+
+finals = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8'
+]
